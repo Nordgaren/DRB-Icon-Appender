@@ -91,6 +91,8 @@ namespace DRB_Icon_Appender
             btnAddIcon.Enabled = enable;
             btnSave.Enabled = enable;
             btnClose.Enabled = enable;
+            btnBatchSave.Enabled = enable;
+            btnBatchLoad.Enabled = enable;
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -330,6 +332,22 @@ namespace DRB_Icon_Appender
         {
             SystemSounds.Hand.Play();
             e.Cancel = true;
+        }
+
+        private void btnBatchSave_Click(object sender, EventArgs e)
+        {
+            var batchSave = new BatchSave(shapes);
+            batchSave.Show();
+        }
+
+        private void btnBatchLoad_Click(object sender, EventArgs e)
+        {
+            var batchLoad = new BatchLoad(shapes);
+            batchLoad.ShowDialog();
+            spriteShapeBindingSource.Clear();
+            shapes = BatchLoad.GetShapes();
+            shapes.Sort((s1, s2) => s1.ID.CompareTo(s2.ID));
+            spriteShapeBindingSource.DataSource = shapes;
         }
     }
 }

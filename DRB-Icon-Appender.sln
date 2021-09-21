@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DRB-Icon-Appender", "DRB-Icon-Appender\DRB-Icon-Appender.csproj", "{963FB0E9-EAA3-470A-9E97-599A9F29AB55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSFormats", "..\..\GitHub\JKAnderson\DSFormats\DSFormats\DSFormats.csproj", "{38B89629-A437-400D-ABC6-97E76B227C41}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSFormats", "..\DSFormats\DSFormats\DSFormats.csproj", "{38B89629-A437-400D-ABC6-97E76B227C41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

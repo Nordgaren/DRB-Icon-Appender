@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DRB_Icon_Appender
 {
-    class SpriteShape
+    public class SpriteShape
     {
         public int ID { get; private set; }
         public string Texture { get; set; }

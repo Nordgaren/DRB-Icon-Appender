@@ -41,6 +41,9 @@
     <Reference Include="Costura, Version=3.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
       <HintPath>..\packages\Costura.Fody.3.1.0\lib\net46\Costura.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Octokit, Version=0.30.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Octokit.0.30.0\lib\net45\Octokit.dll</HintPath>
     </Reference>
@@ -60,6 +63,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BatchLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BatchLoad.Designer.cs">
+      <DependentUpon>BatchLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BatchSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BatchSave.Designer.cs">
+      <DependentUpon>BatchSave.cs</DependentUpon>
+    </Compile>
     <Compile Include="DRBRaw.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -70,6 +85,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpriteShape.cs" />
+    <EmbeddedResource Include="BatchLoad.resx">
+      <DependentUpon>BatchLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BatchSave.resx">
+      <DependentUpon>BatchSave.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,14 +119,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\GitHub\JKAnderson\DSFormats\DSFormats\DSFormats.csproj">
+    <Content Include="FodyWeavers.xml" />
+    <Content Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DSFormats\DSFormats\DSFormats.csproj">
       <Project>{38b89629-a437-400d-abc6-97e76b227c41}</Project>
       <Name>DSFormats</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="FodyWeavers.xml" />
-    <Content Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
