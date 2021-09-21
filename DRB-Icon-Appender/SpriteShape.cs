@@ -22,6 +22,10 @@ namespace DRB_Icon_Appender
         private byte unk11;
         private int unk12;
         private byte unk13, unk14, unk15, unk16;
+        public SpriteShape()
+        {
+
+        }
 
         public SpriteShape(DRBRaw.DLGOEntry dlgo, DRBRaw drb, List<string> textures, bool dsr)
         {
