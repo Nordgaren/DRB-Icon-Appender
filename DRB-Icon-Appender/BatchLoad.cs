@@ -19,19 +19,14 @@ namespace DRB_Icon_Appender
         public BatchLoad(List<SpriteShape> shapes)
         {
             InitializeComponent();
-            Shapes = new List<SpriteShape>(shapes);
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtPath.Text))
             {
-                var list = JsonConvert.DeserializeObject<List<SpriteShape>>(File.ReadAllText(txtPath.Text));
-
-                foreach (var item in list)
-                {
-                    Shapes.Add(item);
-                }
+                Shapes = JsonConvert.DeserializeObject<List<SpriteShape>>(File.ReadAllText(txtPath.Text));
+                Close();
             }
         }
 
@@ -55,6 +50,11 @@ namespace DRB_Icon_Appender
             {
                 txtPath.Text = browseDialog.FileName;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

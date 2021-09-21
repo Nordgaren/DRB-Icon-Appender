@@ -1,4 +1,5 @@
 ﻿using DSFormats;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -6,7 +7,7 @@ namespace DRB_Icon_Appender
 {
     public class SpriteShape
     {
-        public int ID { get; private set; }
+        public int ID { get; set; }
         public string Texture { get; set; }
         public short LeftEdge { get; set; }
         public short TopEdge { get; set; }
@@ -22,6 +23,7 @@ namespace DRB_Icon_Appender
         private byte unk11;
         private int unk12;
         private byte unk13, unk14, unk15, unk16;
+
         public SpriteShape()
         {
 

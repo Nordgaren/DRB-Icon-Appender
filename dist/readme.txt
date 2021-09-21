@@ -24,6 +24,13 @@ First extract menu\menu.tpf (PtDE) or menu.tpf.dcx (Remastered). Inside you'll f
 Next extract any of the menu_#.tpfs, add the actual icon texture with the same name as before, add it to filelist.txt, and rebuild.
 If done correctly, the texture will now be listed as an option in Icon Appender and loaded in-game.
 
+--| Batch Save/Load
+
+Hit batch save, enter the range of the icons you want to save (it saves all icons in that range). Save the json.
+
+Hit batch load. browse to the save json and load it. Confirm they were added and then save the drb.
+
+If you have icons with those ids already, you can open the json. I formatted it to make it very easy to multi-line select and change the numbers in batck (say you have 1500-1600, you could multi-line select the IDs at the beginning and delete the 1 and replace it with 2 or 3, etc)
 
 --| Credits
 

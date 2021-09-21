@@ -198,6 +198,38 @@ namespace DRB_Icon_Appender
                     dgvIcons.CurrentCell = row.Cells[0];
         }
 
+        private void LoadNew(List<SpriteShape> newShapes)
+        {
+            foreach (var item in newShapes)
+            {
+                var checkID = item.ID;
+                if (shapePresent(checkID))
+                {
+                    MessageBox.Show("Icon IDs already exist. Edit the json to give new IDs",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            foreach (var item in newShapes)
+            {
+                var id = item.ID;
+                SpriteShape shape = new SpriteShape(id, drb, textures, remastered);
+                shape.Texture = item.Texture;
+                shape.LeftEdge = item.LeftEdge;
+                shape.TopEdge = item.TopEdge;
+                shape.Width = item.Width;
+                shape.Height = item.Height;
+                spriteShapeBindingSource.Add(shape);
+                shapes.Sort((s1, s2) => s1.ID.CompareTo(s2.ID));
+
+                foreach (DataGridViewRow row in dgvIcons.Rows)
+                    if ((int)row.Cells[0].Value == id)
+                        dgvIcons.CurrentCell = row.Cells[0];
+            }
+            
+        }
+
         private void showError(string message, bool silent = false)
         {
             if (!silent)
@@ -344,10 +376,9 @@ namespace DRB_Icon_Appender
         {
             var batchLoad = new BatchLoad(shapes);
             batchLoad.ShowDialog();
-            spriteShapeBindingSource.Clear();
-            shapes = BatchLoad.GetShapes();
-            shapes.Sort((s1, s2) => s1.ID.CompareTo(s2.ID));
-            spriteShapeBindingSource.DataSource = shapes;
+            var newShapes = BatchLoad.GetShapes();
+            if (newShapes != null)
+                LoadNew(newShapes);
         }
     }
 }

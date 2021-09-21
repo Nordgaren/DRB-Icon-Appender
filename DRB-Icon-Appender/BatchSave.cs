@@ -45,9 +45,17 @@ namespace DRB_Icon_Appender
                     }
                 }
                 var json = JsonConvert.SerializeObject(batchSave);
+                json = json.Replace("},{", "},\n{");
+                json = json.Replace("[{", "[\n{");
 
                 File.WriteAllText(browserDialog.FileName, json);
+                Close();
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
