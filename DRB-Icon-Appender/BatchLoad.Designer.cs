@@ -86,9 +86,9 @@ namespace DRB_Icon_Appender
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(326, 116);
+            this.btnBrowse.Location = new System.Drawing.Point(326, 112);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(110, 26);
+            this.btnBrowse.Size = new System.Drawing.Size(110, 35);
             this.btnBrowse.TabIndex = 8;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;

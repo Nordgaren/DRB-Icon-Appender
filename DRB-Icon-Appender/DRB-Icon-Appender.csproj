@@ -8,7 +8,7 @@
     <ProjectGuid>{963FB0E9-EAA3-470A-9E97-599A9F29AB55}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>DRB_Icon_Appender</RootNamespace>
-    <AssemblyName>DRB-Icon-Appender</AssemblyName>
+    <AssemblyName>DRB-Icon-Appender Batch Tool</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
