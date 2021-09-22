@@ -198,7 +198,7 @@ namespace DRB_Icon_Appender
                     dgvIcons.CurrentCell = row.Cells[0];
         }
 
-        private void LoadNew(List<SpriteShape> newShapes)
+        private void BatchLoadEntires(List<SpriteShape> newShapes)
         {
             foreach (var item in newShapes)
             {
@@ -211,9 +211,10 @@ namespace DRB_Icon_Appender
                 }
             }
 
+            int id = 0;
             foreach (var item in newShapes)
             {
-                var id = item.ID;
+                id = item.ID;
                 SpriteShape shape = new SpriteShape(id, drb, textures, remastered);
                 shape.Texture = item.Texture;
                 shape.LeftEdge = item.LeftEdge;
@@ -221,13 +222,13 @@ namespace DRB_Icon_Appender
                 shape.Width = item.Width;
                 shape.Height = item.Height;
                 spriteShapeBindingSource.Add(shape);
-                shapes.Sort((s1, s2) => s1.ID.CompareTo(s2.ID));
-
-                foreach (DataGridViewRow row in dgvIcons.Rows)
-                    if ((int)row.Cells[0].Value == id)
-                        dgvIcons.CurrentCell = row.Cells[0];
             }
-            
+
+            shapes.Sort((s1, s2) => s1.ID.CompareTo(s2.ID));
+
+            foreach (DataGridViewRow row in dgvIcons.Rows)
+                if ((int)row.Cells[0].Value == id)
+                    dgvIcons.CurrentCell = row.Cells[0];
         }
 
         private void showError(string message, bool silent = false)
@@ -369,7 +370,7 @@ namespace DRB_Icon_Appender
         private void btnBatchSave_Click(object sender, EventArgs e)
         {
             var batchSave = new BatchSave(shapes);
-            batchSave.Show();
+            batchSave.ShowDialog();
         }
 
         private void btnBatchLoad_Click(object sender, EventArgs e)
@@ -378,7 +379,7 @@ namespace DRB_Icon_Appender
             batchLoad.ShowDialog();
             var newShapes = BatchLoad.GetShapes();
             if (newShapes != null)
-                LoadNew(newShapes);
+                BatchLoadEntires(newShapes);
         }
     }
 }
