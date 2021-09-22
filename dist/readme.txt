@@ -30,7 +30,7 @@ Hit batch save, enter the range of the icons you want to save (it saves all icon
 
 Hit batch load. browse to the save json and load it. Confirm they were added and then save the drb.
 
-If you have icons with those ids already, you can open the json. I formatted it to make it very easy to multi-line select and change the numbers in batck (say you have 1500-1600, you could multi-line select the IDs at the beginning and delete the 1 and replace it with 2 or 3, etc)
+If you have icons with those ids already, you can select the "New Range" checkbox to change the range by the starting ID.
 
 --| Credits
 
