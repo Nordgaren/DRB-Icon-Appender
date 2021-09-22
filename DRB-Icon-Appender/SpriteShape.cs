@@ -7,7 +7,7 @@ namespace DRB_Icon_Appender
 {
     public class SpriteShape
     {
-        public int ID { get; set; }
+        public int ID { get; private set; }
         public string Texture { get; set; }
         public short LeftEdge { get; set; }
         public short TopEdge { get; set; }
@@ -24,9 +24,15 @@ namespace DRB_Icon_Appender
         private int unk12;
         private byte unk13, unk14, unk15, unk16;
 
-        public SpriteShape()
+        [JsonConstructor]
+        public SpriteShape(int id, string texture, short leftEdge, short topEdge, int width, int height)
         {
-
+            ID = id;
+            Texture = texture;
+            LeftEdge = leftEdge;
+            TopEdge = topEdge;
+            Width = width;
+            Height = height;
         }
 
         public SpriteShape(DRBRaw.DLGOEntry dlgo, DRBRaw drb, List<string> textures, bool dsr)
