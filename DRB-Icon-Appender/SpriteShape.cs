@@ -35,6 +35,11 @@ namespace DRB_Icon_Appender
             Height = height;
         }
 
+        public void SetID(int id)
+        {
+            ID = id;
+        }
+
         public SpriteShape(DRBRaw.DLGOEntry dlgo, DRBRaw drb, List<string> textures, bool dsr)
         {
             if (!dlgo.Name.Contains("EquIcon_"))

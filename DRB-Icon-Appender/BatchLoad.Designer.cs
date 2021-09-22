@@ -37,11 +37,18 @@ namespace DRB_Icon_Appender
             this.label2 = new System.Windows.Forms.Label();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
+            this.nudStart = new System.Windows.Forms.NumericUpDown();
+            this.nudEnd = new System.Windows.Forms.NumericUpDown();
+            this.lblStart = new System.Windows.Forms.Label();
+            this.lblEnd = new System.Windows.Forms.Label();
+            this.cbxNewRange = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEnd)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(60, 173);
+            this.btnLoad.Location = new System.Drawing.Point(60, 200);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(110, 45);
             this.btnLoad.TabIndex = 0;
@@ -51,7 +58,7 @@ namespace DRB_Icon_Appender
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(290, 173);
+            this.btnCancel.Location = new System.Drawing.Point(290, 200);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 45);
             this.btnCancel.TabIndex = 1;
@@ -62,7 +69,7 @@ namespace DRB_Icon_Appender
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(162, 67);
+            this.lblPath.Location = new System.Drawing.Point(162, 40);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(128, 20);
             this.lblPath.TabIndex = 4;
@@ -79,14 +86,14 @@ namespace DRB_Icon_Appender
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(12, 116);
+            this.txtPath.Location = new System.Drawing.Point(12, 66);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(308, 26);
             this.txtPath.TabIndex = 7;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(326, 112);
+            this.btnBrowse.Location = new System.Drawing.Point(326, 62);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(110, 35);
             this.btnBrowse.TabIndex = 8;
@@ -94,11 +101,62 @@ namespace DRB_Icon_Appender
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
+            // nudStart
+            // 
+            this.nudStart.Enabled = false;
+            this.nudStart.Location = new System.Drawing.Point(57, 127);
+            this.nudStart.Name = "nudStart";
+            this.nudStart.Size = new System.Drawing.Size(120, 26);
+            this.nudStart.TabIndex = 9;
+            this.nudStart.ValueChanged += new System.EventHandler(this.nudStart_ValueChanged);
+            // 
+            // nudEnd
+            // 
+            this.nudEnd.Enabled = false;
+            this.nudEnd.Location = new System.Drawing.Point(287, 127);
+            this.nudEnd.Name = "nudEnd";
+            this.nudEnd.Size = new System.Drawing.Size(120, 26);
+            this.nudEnd.TabIndex = 10;
+            // 
+            // lblStart
+            // 
+            this.lblStart.AutoSize = true;
+            this.lblStart.Location = new System.Drawing.Point(68, 104);
+            this.lblStart.Name = "lblStart";
+            this.lblStart.Size = new System.Drawing.Size(96, 20);
+            this.lblStart.TabIndex = 11;
+            this.lblStart.Text = "Range Start";
+            // 
+            // lblEnd
+            // 
+            this.lblEnd.AutoSize = true;
+            this.lblEnd.Location = new System.Drawing.Point(297, 104);
+            this.lblEnd.Name = "lblEnd";
+            this.lblEnd.Size = new System.Drawing.Size(90, 20);
+            this.lblEnd.TabIndex = 12;
+            this.lblEnd.Text = "Range End";
+            // 
+            // cbxNewRange
+            // 
+            this.cbxNewRange.AutoSize = true;
+            this.cbxNewRange.Location = new System.Drawing.Point(181, 170);
+            this.cbxNewRange.Name = "cbxNewRange";
+            this.cbxNewRange.Size = new System.Drawing.Size(112, 24);
+            this.cbxNewRange.TabIndex = 13;
+            this.cbxNewRange.Text = "newRange";
+            this.cbxNewRange.UseVisualStyleBackColor = true;
+            this.cbxNewRange.CheckedChanged += new System.EventHandler(this.cbxNewRange_CheckedChanged);
+            // 
             // BatchLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 254);
+            this.Controls.Add(this.cbxNewRange);
+            this.Controls.Add(this.lblEnd);
+            this.Controls.Add(this.lblStart);
+            this.Controls.Add(this.nudEnd);
+            this.Controls.Add(this.nudStart);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtPath);
             this.Controls.Add(this.label2);
@@ -107,6 +165,8 @@ namespace DRB_Icon_Appender
             this.Controls.Add(this.btnLoad);
             this.Name = "BatchLoad";
             this.Text = "Batch Load";
+            ((System.ComponentModel.ISupportInitialize)(this.nudStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudEnd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +182,10 @@ namespace DRB_Icon_Appender
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.NumericUpDown nudStart;
+        private System.Windows.Forms.NumericUpDown nudEnd;
+        private System.Windows.Forms.Label lblStart;
+        private System.Windows.Forms.Label lblEnd;
+        private System.Windows.Forms.CheckBox cbxNewRange;
     }
 }
