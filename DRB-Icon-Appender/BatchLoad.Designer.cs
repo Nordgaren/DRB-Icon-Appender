@@ -69,7 +69,7 @@ namespace DRB_Icon_Appender
             // lblPath
             // 
             this.lblPath.AutoSize = true;
-            this.lblPath.Location = new System.Drawing.Point(162, 40);
+            this.lblPath.Location = new System.Drawing.Point(162, 45);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(128, 20);
             this.lblPath.TabIndex = 4;
@@ -141,9 +141,9 @@ namespace DRB_Icon_Appender
             this.cbxNewRange.AutoSize = true;
             this.cbxNewRange.Location = new System.Drawing.Point(181, 170);
             this.cbxNewRange.Name = "cbxNewRange";
-            this.cbxNewRange.Size = new System.Drawing.Size(112, 24);
+            this.cbxNewRange.Size = new System.Drawing.Size(118, 24);
             this.cbxNewRange.TabIndex = 13;
-            this.cbxNewRange.Text = "newRange";
+            this.cbxNewRange.Text = "New Range";
             this.cbxNewRange.UseVisualStyleBackColor = true;
             this.cbxNewRange.CheckedChanged += new System.EventHandler(this.cbxNewRange_CheckedChanged);
             // 
