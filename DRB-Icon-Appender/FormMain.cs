@@ -93,6 +93,7 @@ namespace DRB_Icon_Appender
             btnClose.Enabled = enable;
             btnBatchSave.Enabled = enable;
             btnBatchLoad.Enabled = enable;
+            btnLoadDSR.Enabled = enable;
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -221,6 +222,39 @@ namespace DRB_Icon_Appender
                 shape.TopEdge = item.TopEdge;
                 shape.Width = item.Width;
                 shape.Height = item.Height;
+                spriteShapeBindingSource.Add(shape);
+            }
+
+            shapes.Sort((s1, s2) => s1.ID.CompareTo(s2.ID));
+
+            foreach (DataGridViewRow row in dgvIcons.Rows)
+                if ((int)row.Cells[0].Value == id)
+                    dgvIcons.CurrentCell = row.Cells[0];
+        }
+
+        private void BatchLoadEntiresDSR(List<SpriteShape> newShapes)
+        {
+            foreach (var item in newShapes)
+            {
+                var checkID = item.ID;
+                if (shapePresent(checkID))
+                {
+                    MessageBox.Show("Icon IDs already exist. Edit the json to give new IDs",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            int id = 0;
+            foreach (var item in newShapes)
+            {
+                id = item.ID;
+                SpriteShape shape = new SpriteShape(id, drb, textures, remastered);
+                shape.Texture = item.Texture;
+                shape.LeftEdge = (short)(item.LeftEdge * 2);
+                shape.TopEdge = (short)(item.TopEdge * 2);
+                shape.Width = item.Width * 2;
+                shape.Height = item.Height * 2;
                 spriteShapeBindingSource.Add(shape);
             }
 
@@ -380,6 +414,15 @@ namespace DRB_Icon_Appender
             var newShapes = BatchLoad.GetShapes();
             if (newShapes != null)
                 BatchLoadEntires(newShapes);
+        }
+
+        private void btnBatchLoadDSR_Click(object sender, EventArgs e)
+        {
+            var batchLoad = new BatchLoad(shapes);
+            batchLoad.ShowDialog();
+            var newShapes = BatchLoad.GetShapes();
+            if (newShapes != null)
+                BatchLoadEntiresDSR(newShapes);
         }
     }
 }

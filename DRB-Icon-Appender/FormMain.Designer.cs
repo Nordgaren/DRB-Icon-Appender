@@ -39,14 +39,10 @@
             this.btnAddIcon = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
+            this.btnBatchSave = new System.Windows.Forms.Button();
+            this.btnBatchLoad = new System.Windows.Forms.Button();
             this.txtGameDir = new System.Windows.Forms.TextBox();
             this.dgvIcons = new System.Windows.Forms.DataGridView();
-            this.ofdExecutable = new System.Windows.Forms.OpenFileDialog();
-            this.llbUpdate = new System.Windows.Forms.LinkLabel();
-            this.lblUpdate = new System.Windows.Forms.Label();
-            this.nudIconID = new System.Windows.Forms.NumericUpDown();
-            this.lblIconID = new System.Windows.Forms.Label();
-            this.btnBatchSave = new System.Windows.Forms.Button();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textureDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.leftEdgeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,12 +50,17 @@
             this.widthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.spriteShapeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnBatchLoad = new System.Windows.Forms.Button();
+            this.ofdExecutable = new System.Windows.Forms.OpenFileDialog();
+            this.llbUpdate = new System.Windows.Forms.LinkLabel();
+            this.lblUpdate = new System.Windows.Forms.Label();
+            this.nudIconID = new System.Windows.Forms.NumericUpDown();
+            this.lblIconID = new System.Windows.Forms.Label();
+            this.btnLoadDSR = new System.Windows.Forms.Button();
             lblGameDir = new System.Windows.Forms.Label();
             toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvIcons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIconID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spriteShapeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIconID)).BeginInit();
             this.SuspendLayout();
             // 
             // lblGameDir
@@ -162,6 +163,34 @@
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
+            // btnBatchSave
+            // 
+            this.btnBatchSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBatchSave.Enabled = false;
+            this.btnBatchSave.Location = new System.Drawing.Point(190, 851);
+            this.btnBatchSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBatchSave.Name = "btnBatchSave";
+            this.btnBatchSave.Size = new System.Drawing.Size(112, 35);
+            this.btnBatchSave.TabIndex = 24;
+            this.btnBatchSave.Text = "Batch Save";
+            toolTip1.SetToolTip(this.btnBatchSave, "Create a new icon with the given ID");
+            this.btnBatchSave.UseVisualStyleBackColor = true;
+            this.btnBatchSave.Click += new System.EventHandler(this.btnBatchSave_Click);
+            // 
+            // btnBatchLoad
+            // 
+            this.btnBatchLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBatchLoad.Enabled = false;
+            this.btnBatchLoad.Location = new System.Drawing.Point(310, 851);
+            this.btnBatchLoad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBatchLoad.Name = "btnBatchLoad";
+            this.btnBatchLoad.Size = new System.Drawing.Size(112, 35);
+            this.btnBatchLoad.TabIndex = 25;
+            this.btnBatchLoad.Text = "Batch Load";
+            toolTip1.SetToolTip(this.btnBatchLoad, "Create a new icon with the given ID");
+            this.btnBatchLoad.UseVisualStyleBackColor = true;
+            this.btnBatchLoad.Click += new System.EventHandler(this.btnBatchLoad_Click);
+            // 
             // txtGameDir
             // 
             this.txtGameDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -202,75 +231,6 @@
             this.dgvIcons.Size = new System.Drawing.Size(963, 698);
             this.dgvIcons.TabIndex = 9;
             this.dgvIcons.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvIcons_DataError);
-            // 
-            // ofdExecutable
-            // 
-            this.ofdExecutable.Filter = "Dark Souls Executable|*.exe";
-            this.ofdExecutable.Title = "Select Dark Souls executable...";
-            // 
-            // llbUpdate
-            // 
-            this.llbUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.llbUpdate.AutoSize = true;
-            this.llbUpdate.Location = new System.Drawing.Point(18, 854);
-            this.llbUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.llbUpdate.Name = "llbUpdate";
-            this.llbUpdate.Size = new System.Drawing.Size(163, 20);
-            this.llbUpdate.TabIndex = 21;
-            this.llbUpdate.TabStop = true;
-            this.llbUpdate.Text = "New version available!";
-            this.llbUpdate.Visible = false;
-            this.llbUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbUpdate_LinkClicked);
-            // 
-            // lblUpdate
-            // 
-            this.lblUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblUpdate.AutoSize = true;
-            this.lblUpdate.Location = new System.Drawing.Point(18, 854);
-            this.lblUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUpdate.Name = "lblUpdate";
-            this.lblUpdate.Size = new System.Drawing.Size(164, 20);
-            this.lblUpdate.TabIndex = 20;
-            this.lblUpdate.Text = "Checking for update...";
-            // 
-            // nudIconID
-            // 
-            this.nudIconID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudIconID.Location = new System.Drawing.Point(680, 851);
-            this.nudIconID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.nudIconID.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nudIconID.Name = "nudIconID";
-            this.nudIconID.Size = new System.Drawing.Size(180, 26);
-            this.nudIconID.TabIndex = 22;
-            // 
-            // lblIconID
-            // 
-            this.lblIconID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblIconID.AutoSize = true;
-            this.lblIconID.Location = new System.Drawing.Point(675, 826);
-            this.lblIconID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIconID.Name = "lblIconID";
-            this.lblIconID.Size = new System.Drawing.Size(61, 20);
-            this.lblIconID.TabIndex = 23;
-            this.lblIconID.Text = "Icon ID";
-            // 
-            // btnBatchSave
-            // 
-            this.btnBatchSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBatchSave.Enabled = false;
-            this.btnBatchSave.Location = new System.Drawing.Point(190, 851);
-            this.btnBatchSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBatchSave.Name = "btnBatchSave";
-            this.btnBatchSave.Size = new System.Drawing.Size(112, 35);
-            this.btnBatchSave.TabIndex = 24;
-            this.btnBatchSave.Text = "Batch Save";
-            toolTip1.SetToolTip(this.btnBatchSave, "Create a new icon with the given ID");
-            this.btnBatchSave.UseVisualStyleBackColor = true;
-            this.btnBatchSave.Click += new System.EventHandler(this.btnBatchSave_Click);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -331,25 +291,80 @@
             // 
             this.spriteShapeBindingSource.DataSource = typeof(DRB_Icon_Appender.SpriteShape);
             // 
-            // btnBatchLoad
+            // ofdExecutable
             // 
-            this.btnBatchLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBatchLoad.Enabled = false;
-            this.btnBatchLoad.Location = new System.Drawing.Point(310, 851);
-            this.btnBatchLoad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBatchLoad.Name = "btnBatchLoad";
-            this.btnBatchLoad.Size = new System.Drawing.Size(112, 35);
-            this.btnBatchLoad.TabIndex = 25;
-            this.btnBatchLoad.Text = "Batch Load";
-            toolTip1.SetToolTip(this.btnBatchLoad, "Create a new icon with the given ID");
-            this.btnBatchLoad.UseVisualStyleBackColor = true;
-            this.btnBatchLoad.Click += new System.EventHandler(this.btnBatchLoad_Click);
+            this.ofdExecutable.Filter = "Dark Souls Executable|*.exe";
+            this.ofdExecutable.Title = "Select Dark Souls executable...";
+            // 
+            // llbUpdate
+            // 
+            this.llbUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.llbUpdate.AutoSize = true;
+            this.llbUpdate.Location = new System.Drawing.Point(18, 854);
+            this.llbUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.llbUpdate.Name = "llbUpdate";
+            this.llbUpdate.Size = new System.Drawing.Size(163, 20);
+            this.llbUpdate.TabIndex = 21;
+            this.llbUpdate.TabStop = true;
+            this.llbUpdate.Text = "New version available!";
+            this.llbUpdate.Visible = false;
+            this.llbUpdate.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbUpdate_LinkClicked);
+            // 
+            // lblUpdate
+            // 
+            this.lblUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblUpdate.AutoSize = true;
+            this.lblUpdate.Location = new System.Drawing.Point(18, 854);
+            this.lblUpdate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUpdate.Name = "lblUpdate";
+            this.lblUpdate.Size = new System.Drawing.Size(164, 20);
+            this.lblUpdate.TabIndex = 20;
+            this.lblUpdate.Text = "Checking for update...";
+            // 
+            // nudIconID
+            // 
+            this.nudIconID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.nudIconID.Location = new System.Drawing.Point(680, 851);
+            this.nudIconID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nudIconID.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudIconID.Name = "nudIconID";
+            this.nudIconID.Size = new System.Drawing.Size(180, 26);
+            this.nudIconID.TabIndex = 22;
+            // 
+            // lblIconID
+            // 
+            this.lblIconID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIconID.AutoSize = true;
+            this.lblIconID.Location = new System.Drawing.Point(675, 826);
+            this.lblIconID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIconID.Name = "lblIconID";
+            this.lblIconID.Size = new System.Drawing.Size(61, 20);
+            this.lblIconID.TabIndex = 23;
+            this.lblIconID.Text = "Icon ID";
+            // 
+            // btnLoadDSR
+            // 
+            this.btnLoadDSR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadDSR.Enabled = false;
+            this.btnLoadDSR.Location = new System.Drawing.Point(430, 850);
+            this.btnLoadDSR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLoadDSR.Name = "btnLoadDSR";
+            this.btnLoadDSR.Size = new System.Drawing.Size(112, 35);
+            this.btnLoadDSR.TabIndex = 25;
+            this.btnLoadDSR.Text = "Batch Load";
+            this.btnLoadDSR.UseVisualStyleBackColor = true;
+            this.btnLoadDSR.Click += new System.EventHandler(this.btnBatchLoadDSR_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 900);
+            this.Controls.Add(this.btnLoadDSR);
             this.Controls.Add(this.btnBatchLoad);
             this.Controls.Add(this.btnBatchSave);
             this.Controls.Add(this.lblIconID);
@@ -374,8 +389,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvIcons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudIconID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spriteShapeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudIconID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,6 +420,7 @@
         private System.Windows.Forms.Label lblIconID;
         private System.Windows.Forms.Button btnBatchSave;
         private System.Windows.Forms.Button btnBatchLoad;
+        private System.Windows.Forms.Button btnLoadDSR;
     }
 }
 
